@@ -19,7 +19,7 @@
             overflow-x: hidden;
         }
 
-        /* --- FOND ANIMÉ (Le "Flow" Digital) --- */
+        /* --- FOND ANIMÉ --- */
         body::before {
             content: '';
             position: absolute;
@@ -35,7 +35,7 @@
             100% { transform: scale(1.1); }
         }
 
-        /* --- TYPOGRAPHIE --- */
+        /* --- TYPOGRAPHIE & COULEURS --- */
         .gradient-text {
             background: linear-gradient(90deg, #00f7ff, #bc13fe);
             -webkit-background-clip: text;
@@ -52,22 +52,29 @@
             margin: 0 auto;
         }
 
-        /* --- HEADER --- */
+        /* --- HEADER & LOGO --- */
         header {
             padding: 2rem 0;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Logo à gauche */
             align-items: center;
         }
 
-        .logo {
-            font-weight: 800;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        .logo-img {
+            /* Taille du logo : ajuste le "height" (hauteur) si tu le veux plus gros */
+            height: 60px; 
+            width: auto;
+            display: block;
+            /* Petit effet de survol sur le logo */
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 8px rgba(0, 247, 255, 0.3));
         }
 
-        /* --- HERO SECTION (Version Desktop) --- */
+        /* --- HERO SECTION --- */
         .hero-section {
             min-height: 80vh;
             display: flex;
@@ -112,7 +119,7 @@
             transform: translateY(-3px);
         }
 
-        /* --- SECTION ABOUT (Version Desktop) --- */
+        /* --- SECTION ABOUT --- */
         .about-section {
             padding: 6rem 0;
             background: rgba(255, 255, 255, 0.02);
@@ -122,7 +129,7 @@
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 2 colonnes sur PC */
+            grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
@@ -155,30 +162,25 @@
             font-size: 0.9rem;
         }
 
-        /* --- MOBILE RESPONSIVE (C'est ici que la magie opère pour les téléphones) --- */
+        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
-            /* On réduit la taille du titre géant pour qu'il rentre sur l'écran */
-            h1 { font-size: 2.8rem; } 
-            
-            /* On ajuste le sous-titre */
+            h1 { font-size: 2.8rem; }
             .hero-subtitle { font-size: 1.1rem; }
-            
-            /* On passe la grille de 2 colonnes à 1 seule colonne */
             .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-            
-            /* On ajoute un peu de marge sur les côtés */
             .container { width: 90%; }
-            
-            /* On réduit les marges verticales */
             .hero-section { min-height: auto; padding: 4rem 0; }
-            .about-section { padding: 4rem 0; }
+            
+            /* Ajustement logo mobile */
+            .logo-img { height: 45px; } 
         }
     </style>
 </head>
 <body>
 
     <header class="container">
-        <div class="logo">URBAN WEB WORKS<span class="cyan-accent">.</span></div>
+        <div class="logo-container">
+            <img src="logo.png" alt="Urban Web Works Logo" class="logo-img">
+        </div>
     </header>
 
     <section class="hero-section container">
