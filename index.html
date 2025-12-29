@@ -56,27 +56,26 @@
         header {
             padding: 2rem 0;
             display: flex;
-            justify-content: space-between; /* Logo à gauche */
+            justify-content: space-between; 
             align-items: center;
         }
 
         .logo-img {
-            /* Taille du logo : ajuste le "height" (hauteur) si tu le veux plus gros */
-            height: 60px; 
+            /* MODIFICATION ICI : Taille augmentée à 110px */
+            height: 110px; 
             width: auto;
             display: block;
-            /* Petit effet de survol sur le logo */
             transition: transform 0.3s ease;
         }
         
         .logo-img:hover {
             transform: scale(1.05);
-            filter: drop-shadow(0 0 8px rgba(0, 247, 255, 0.3));
+            filter: drop-shadow(0 0 15px rgba(0, 247, 255, 0.4));
         }
 
         /* --- HERO SECTION --- */
         .hero-section {
-            min-height: 80vh;
+            min-height: 75vh; /* Légèrement réduit pour remonter le texte vu que le logo est gros */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -170,8 +169,8 @@
             .container { width: 90%; }
             .hero-section { min-height: auto; padding: 4rem 0; }
             
-            /* Ajustement logo mobile */
-            .logo-img { height: 45px; } 
+            /* Logo adapté pour mobile (un peu plus gros qu'avant aussi) */
+            .logo-img { height: 70px; } 
         }
     </style>
 </head>
