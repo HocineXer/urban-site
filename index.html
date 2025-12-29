@@ -1,49 +1,41 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urban Web Works | Premium Digital Assets</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
     
     <style>
         /* --- RESET ET BASES --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            /* Fond bleu nuit profond */
-            background-color: #0a0a1a; 
+            background-color: #0a0a1a; /* Dark Blue profond */
             color: #ffffff;
             line-height: 1.6;
-            overflow-x: hidden; /* Empêche le scroll horizontal si des éléments dépassent */
+            overflow-x: hidden;
         }
 
-        /* --- EFFET DE FOND FUTURISTE --- */
-        /* Crée une lueur d'ambiance qui bouge lentement */
+        /* --- FOND ANIMÉ (Le "Flow" Digital) --- */
         body::before {
             content: '';
             position: absolute;
-            top: -20%;
-            left: -20%;
-            width: 140%;
-            height: 140%;
-            background: radial-gradient(circle at center, rgba(0, 247, 255, 0.1) 0%, rgba(188, 19, 254, 0.05) 30%, transparent 70%);
+            top: -20%; left: -20%;
+            width: 140%; height: 140%;
+            background: radial-gradient(circle at center, rgba(0, 247, 255, 0.08) 0%, rgba(188, 19, 254, 0.04) 30%, transparent 70%);
             z-index: -1;
             animation: pulseBackground 15s ease infinite alternate;
         }
 
         @keyframes pulseBackground {
-            0% { transform: scale(1) translate(0,0); }
-            100% { transform: scale(1.1) translate(-2%, -2%); }
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
         }
 
-        /* --- TYPOGRAPHIE & COULEURS --- */
-        /* Le dégradé de texte sexy pour les titres */
+        /* --- TYPOGRAPHIE --- */
         .gradient-text {
             background: linear-gradient(90deg, #00f7ff, #bc13fe);
             -webkit-background-clip: text;
@@ -54,14 +46,13 @@
 
         .cyan-accent { color: #00f7ff; }
 
-        /* --- STRUCTURE --- */
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* --- HEADER SIMPLIFIÉ --- */
+        /* --- HEADER --- */
         header {
             padding: 2rem 0;
             display: flex;
@@ -73,15 +64,15 @@
             font-weight: 800;
             font-size: 1.5rem;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        /* --- SECTION HERO (L'Accroche) --- */
+        /* --- HERO SECTION (Version Desktop) --- */
         .hero-section {
-            height: 80vh; /* Prend 80% de la hauteur de l'écran */
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
             padding: 2rem 0;
         }
 
@@ -95,55 +86,48 @@
         .hero-subtitle {
             font-size: 1.5rem;
             font-weight: 300;
-            color: #a0a0c0; /* Blanc cassé légèrement bleuté */
-            max-width: 600px;
+            color: #a0a0c0;
+            max-width: 650px;
             margin-bottom: 3rem;
         }
 
-        /* --- BOUTON FUTURISTE --- */
+        /* --- BOUTON NEON --- */
         .btn-glow {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: #00f7ff; /* Couleur Cyan */
-            color: #0a0a1a; /* Texte foncé */
+            background: #00f7ff;
+            color: #0a0a1a;
             text-decoration: none;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-radius: 4px;
-            /* L'effet de lueur néon autour du bouton */
-            box-shadow: 0 0 20px rgba(0, 247, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
         }
 
         .btn-glow:hover {
             background: #ffffff;
-            box-shadow: 0 0 40px rgba(0, 247, 255, 0.8);
-            transform: translateY(-3px); /* Petit effet de soulèvement */
+            box-shadow: 0 0 40px rgba(0, 247, 255, 0.7);
+            transform: translateY(-3px);
         }
 
-        /* --- SECTION ABOUT US & PARIS --- */
+        /* --- SECTION ABOUT (Version Desktop) --- */
         .about-section {
-            padding: 5rem 0;
-            /* Effet de "verre dépoli" (Glassmorphism) subtil */
-            background: rgba(255, 255, 255, 0.03);
-            border-top: 1px solid rgba(0, 247, 255, 0.1);
-            backdrop-filter: blur(10px);
+            padding: 6rem 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
         }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr; /* 2 colonnes sur PC */
             gap: 4rem;
             align-items: center;
         }
 
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
+        h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
 
         .about-text p {
             margin-bottom: 1.5rem;
@@ -151,32 +135,43 @@
             color: #ccc;
         }
 
-        .paris-badge {
+        .location-badge {
             display: inline-flex;
             align-items: center;
             margin-top: 1rem;
             font-weight: 500;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
-        .paris-badge span {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
+        .location-badge span { margin-right: 10px; }
 
-        /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 3rem 0;
-            color: #666;
+            color: #555;
             font-size: 0.9rem;
         }
 
-        /* --- RESPONSIVE (Pour mobile) --- */
+        /* --- MOBILE RESPONSIVE (C'est ici que la magie opère pour les téléphones) --- */
         @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .hero-subtitle { font-size: 1.2rem; }
+            /* On réduit la taille du titre géant pour qu'il rentre sur l'écran */
+            h1 { font-size: 2.8rem; } 
+            
+            /* On ajuste le sous-titre */
+            .hero-subtitle { font-size: 1.1rem; }
+            
+            /* On passe la grille de 2 colonnes à 1 seule colonne */
             .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .hero-section { height: auto; padding: 5rem 0; }
+            
+            /* On ajoute un peu de marge sur les côtés */
+            .container { width: 90%; }
+            
+            /* On réduit les marges verticales */
+            .hero-section { min-height: auto; padding: 4rem 0; }
+            .about-section { padding: 4rem 0; }
         }
     </style>
 </head>
@@ -184,7 +179,7 @@
 
     <header class="container">
         <div class="logo">URBAN WEB WORKS<span class="cyan-accent">.</span></div>
-        </header>
+    </header>
 
     <section class="hero-section container">
         <h1>
@@ -192,32 +187,31 @@
             <span class="gradient-text">Digital Assets.</span>
         </h1>
         <p class="hero-subtitle">
-            Expertise en acquisition et valorisation de noms de domaine premium. Nous ne cherchons pas juste des adresses, nous construisons votre territoire numérique.
+            Specialized in premium domain acquisition and digital asset valuation. We don't just find addresses; we define your digital territory.
         </p>
-        <a href="mailto:hocine@urbanwebworks.com" class="btn-glow">Initier le contact</a>
+        <a href="mailto:hocine.ak@urbanwebworks.com" class="btn-glow">Initiate Contact</a>
     </section>
 
     <section class="about-section">
         <div class="container about-grid">
             <div class="about-text">
-                <h2>L'Architecture du <span class="cyan-accent">Succès.</span></h2>
+                <h2>The Architecture of <span class="cyan-accent">Success.</span></h2>
                 <p>
-                    Dans une économie numérique saturée, la rareté est la nouvelle devise. Chez Urban Web Works, nous allions une veille technologique de pointe à une vision stratégique long-terme pour identifier des opportunités invisibles pour d'autres.
+                    In a saturated digital economy, exclusivity is the new currency. At Urban Web Works, we combine cutting-edge market intelligence with long-term strategic vision to uncover opportunities invisible to others.
                 </p>
                 <p>
-                    Nous opérons à l'intersection de la technologie et du business, transformant des noms de domaine en leviers de croissance.
+                    We operate at the intersection of technology and business, transforming raw domain names into high-value corporate assets.
                 </p>
-                <div class="paris-badge">
-                    <span>📍</span> Opérant depuis le cœur de <span class="gradient-text" style="margin-left: 5px;">Paris, France.</span>
+                <div class="location-badge">
+                    <span>📍</span> Operations based in <span style="color: #fff; font-weight: bold; margin-left: 5px;"> Paris, France.</span>
                 </div>
             </div>
-            <div class="about-visual">
-                 </div>
+            <div class="about-visual"></div>
         </div>
     </section>
 
     <footer>
-        <p>© 2024 Urban Web Works. Tous droits réservés.</p>
+        <p>© 2025 Urban Web Works. All rights reserved.</p>
     </footer>
 
 </body>
