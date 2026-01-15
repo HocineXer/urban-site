@@ -35,7 +35,7 @@
             pointer-events: none;
         }
 
-        /* Un léger grain pour la texture "papier de luxe" */
+        /* GRAIN DE PAPIER LUXE */
         body::after {
             content: '';
             position: absolute;
@@ -43,7 +43,7 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
             z-index: -1;
             pointer-events: none;
-            position: fixed; /* Le grain reste fixe quand on scroll */
+            position: fixed;
         }
 
         /* --- TYPOGRAPHIE & COULEURS --- */
@@ -69,9 +69,9 @@
         header {
             padding: 1.5rem 0;
             display: flex;
-            justify-content: center; /* Logo centré pour plus de prestance */
+            justify-content: center;
             align-items: center;
-            opacity: 0; /* Pour l'animation d'entrée */
+            opacity: 0;
             animation: fadeInDown 1s ease-out forwards;
         }
 
@@ -88,7 +88,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center; /* Tout centré pour l'impact */
+            align-items: center;
             padding: 4rem 0;
             text-align: center;
         }
@@ -113,7 +113,7 @@
             animation: fadeInUp 1s ease-out 0.6s forwards;
         }
 
-        /* --- BOUTON LUXE AVEC REFLET (SHIMMER) --- */
+        /* --- BOUTON LUXE AVEC REFLET --- */
         .btn-gold {
             position: relative;
             display: inline-block;
@@ -129,12 +129,11 @@
             box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
             transition: all 0.3s ease;
             border: 1px solid #aa8a2e;
-            overflow: hidden; /* Important pour l'effet de reflet */
+            overflow: hidden;
             opacity: 0;
             animation: fadeInUp 1s ease-out 0.9s forwards;
         }
 
-        /* L'effet de lumière qui passe sur le bouton */
         .btn-gold::after {
             content: '';
             position: absolute;
@@ -147,8 +146,8 @@
 
         @keyframes shimmer {
             0% { left: -100%; }
-            20% { left: 200%; } /* Passe vite */
-            100% { left: 200%; } /* Attend avant de recommencer */
+            20% { left: 200%; }
+            100% { left: 200%; }
         }
 
         .btn-gold:hover {
@@ -156,7 +155,7 @@
             box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
         }
 
-        /* --- SECTION EXPERTISE (NOUVEAU) --- */
+        /* --- SECTION EXPERTISE --- */
         .expertise-section {
             padding: 4rem 0 6rem 0;
         }
@@ -255,7 +254,7 @@
         
         footer strong { color: #d4af37; }
 
-        /* --- ANIMATIONS DE SCROLL (JS) --- */
+        /* --- ANIMATIONS SCROLL --- */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -267,7 +266,6 @@
             transform: translateY(0);
         }
 
-        /* ANIMATIONS KEYFRAMES */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -277,17 +275,51 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- MOBILE RESPONSIVE --- */
-        @media (max-width: 768px) {
+        /* --- MOBILE RESPONSIVE CORRIGÉ --- */
+        /* On applique le correctif sur tous les écrans plus petits que 1024px (Tablettes & Mobiles) */
+        @media (max-width: 1024px) {
+            
+            /* On casse la grille pour empiler les éléments les uns sous les autres */
+            .about-grid, .grid-3 { 
+                display: flex;
+                flex-direction: column;
+                gap: 3rem; 
+            }
+            
+            /* On redonne toute la largeur disponible au texte */
+            .about-text, .card {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            /* Ajustement des tailles de police pour que ça rentre bien */
             h1 { font-size: 3rem; }
-            .hero-subtitle { font-size: 1.1rem; padding: 0 1rem; }
-            .grid-3 { grid-template-columns: 1fr; gap: 1.5rem; }
-            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .container { width: 88%; }
-            .hero-section { min-height: auto; padding: 6rem 0 4rem 0; }
-            .location-badge { width: 100%; justify-content: center; }
+            h2 { font-size: 2.2rem; }
+            
+            .hero-subtitle { 
+                font-size: 1.1rem; 
+                padding: 0 1rem; 
+            }
+            
+            .container { width: 90%; }
+            
+            .hero-section { 
+                min-height: auto; 
+                padding: 6rem 0 4rem 0; 
+                text-align: center; 
+            }
+            
+            /* Le badge prend toute la largeur et le contenu est centré */
+            .location-badge { 
+                width: 100%; 
+                justify-content: center; 
+                margin-top: 2rem;
+            }
+            
             .btn-gold { width: 100%; text-align: center; }
-            .logo-img { height: 90px; } 
+            
+            /* Logo légèrement plus petit et centré */
+            .logo-img { height: 90px; margin: 0 auto; } 
         }
     </style>
 </head>
