@@ -26,7 +26,6 @@
             position: absolute;
             top: -20%; left: -20%;
             width: 140%; height: 140%;
-            /* Dégradé très léger pour donner de la profondeur sans changer la couleur */
             background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
             z-index: -1;
             pointer-events: none;
@@ -34,16 +33,14 @@
 
         /* --- TYPOGRAPHIE & COULEURS --- */
         
-        /* C'EST ICI QUE J'AI CHANGÉ LE DÉGRADÉ EN OR */
+        /* DÉGRADÉ OR MÉTALLIQUE */
         .gradient-text {
-            /* Dégradé complexe or métallique pour un effet riche et brillant */
             background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             display: inline-block;
             font-weight: 700;
-            /* Petite ombre dorée pour faire ressortir le texte */
             filter: drop-shadow(0 0 3px rgba(191, 149, 63, 0.3));
         }
 
@@ -65,10 +62,9 @@
         }
 
         .logo-img {
-            height: 110px; /* Taille élégante */
+            height: 110px;
             width: auto;
             display: block;
-            /* Petit filtre pour s'assurer que le logo brille bien */
             filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.2));
         }
 
@@ -82,9 +78,10 @@
         }
 
         h1 {
-            font-family: 'Playfair Display', serif; /* Police Luxe */
+            font-family: 'Playfair Display', serif;
             font-size: 4.2rem;
-            line-height: 1.1;
+            /* CORRECTION ICI : Augmenté de 1.1 à 1.25 pour que le 'g' ne soit pas coupé */
+            line-height: 1.25;
             margin-bottom: 1.5rem;
             color: #ffffff;
         }
@@ -92,7 +89,7 @@
         .hero-subtitle {
             font-size: 1.25rem;
             font-weight: 300;
-            color: #d0d6e0; /* Gris bleuté clair */
+            color: #d0d6e0;
             max-width: 600px;
             margin-bottom: 3rem;
         }
@@ -101,12 +98,12 @@
         .btn-gold {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #d4af37, #aa8a2e); /* Dégradé Or */
+            background: linear-gradient(135deg, #d4af37, #aa8a2e);
             color: #ffffff;
             text-decoration: none;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px; /* Espacement des lettres plus large = plus luxe */
+            letter-spacing: 2px;
             font-size: 0.9rem;
             border-radius: 2px; 
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
@@ -125,8 +122,8 @@
         /* --- SECTION ABOUT --- */
         .about-section {
             padding: 6rem 0;
-            background: rgba(0, 0, 0, 0.15); /* Un peu plus sombre pour le contraste */
-            border-top: 1px solid rgba(212, 175, 55, 0.1); /* Ligne de séparation dorée subtile */
+            background: rgba(0, 0, 0, 0.15);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
         }
 
         .about-grid {
@@ -156,9 +153,9 @@
             margin-top: 2rem;
             font-weight: 500;
             padding: 12px 30px;
-            background: rgba(212, 175, 55, 0.05); /* Fond doré très léger */
+            background: rgba(212, 175, 55, 0.05);
             border-radius: 50px;
-            border: 1px solid rgba(212, 175, 55, 0.2); /* Bordure dorée subtile */
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
         
         .location-badge span.icon { margin-right: 10px; font-size: 1.2rem; }
@@ -173,7 +170,7 @@
             background: rgba(0,0,0,0.2);
         }
         
-        footer strong { color: #d4af37; } /* Nom de l'agence en doré dans le footer */
+        footer strong { color: #d4af37; }
 
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
@@ -184,8 +181,6 @@
             .hero-section { min-height: auto; padding: 5rem 0; text-align: left; }
             .location-badge { width: 100%; justify-content: center; }
             .btn-gold { width: 100%; text-align: center; }
-            
-            /* Logo Mobile */
             .logo-img { height: 85px; } 
         }
     </style>
